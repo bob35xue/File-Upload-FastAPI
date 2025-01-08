@@ -1,0 +1,11 @@
+# Device configuration
+device: "cuda" # "cuda" for GPU, "cpu" for CPU
+
+# Inference parameters
+best_model_path: "C:/Temp/students/FB/Bob/defect_detection/models/best.pt"
+conf_threshold: 0.1 # Set your desired confidence score threshold
+iou_threshold: 0.45 # Set your desired IoU threshold
+
+# Input and output paths
+inference_image_path: "C:/Temp/students/FB/Bob/defect_detection/input_images"
+inference_output_path: "C:/Temp/students/FB/Bob/defect_detection/output_folder"

@@ -21,6 +21,30 @@
             })
             return false
         }
+
+        function runVideoToImage() {
+        fetch('video2image', {
+            method: 'POST'
+        }).then(res => {
+            if (res.ok) {
+                alert('Video processing completed successfully!');
+            } else {
+                alert('Error processing video.');
+            }
+        });
+        }
+
+        function runBundleProcess() {
+            fetch('run-bundle-process', {
+                method: 'POST'
+            }).then(res => {
+                if (res.ok) {
+                    alert('Bundle processing started!');
+                } else {
+                    alert('Error starting bundle processing.');
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -32,12 +56,38 @@
                     <input id="name" name="name" class="form-control form-control-sm" required />
                 </div>
                 <div class="mb-3 col-12">
+                    <label class="form-label" for="inspectorName">Inspector Name</label>
+                    <input id="inspectorName" name="inspectorName" class="form-control form-control-sm" required />
+                </div>
+                <div class="mb-3 col-12">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control form-control-sm" required />
+                </div>
+                <div class="mb-3 col-12">
+                    <label class="form-label" for="dateOfInspection">Date of Inspection</label>
+                    <input type="date" id="dateOfInspection" name="dateOfInspection" class="form-control form-control-sm" required />
+                </div>
+                <div class="mb-3 col-12">
+                    <label class="form-label" for="reasonForInspection">Reason for Inspection</label>
+                    <input id="reasonForInspection" name="reasonForInspection" class="form-control form-control-sm" required />
+                </div>
+                <div class="mb-3 col-12">
+                    <label class="form-label" for="station">Station</label>
+                    <input id="station" name="station" class="form-control form-control-sm" required />
+                </div>
+                <div class="mb-3 col-12">
+                    <label class="form-label" for="unit">Unit</label>
+                    <input id="unit" name="unit" class="form-control form-control-sm" required />
+                </div>
+                <div class="mb-3 col-12">
                     <label class="form-label" for="image">Image</label>
                     <input type="file" accept="image/*" id="image" name="image" class="form-control form-control-sm" required />
                 </div>
                 </div>
-                <div class="col-12">
+                <div class="col-12 d-flex justify-content-between">
                     <button class="btn btn-sm btn-primary">Submit</button>
+                    <button type="button" class="btn btn-sm btn-primary" onclick="runVideoToImage()">Video2Image</button>
+                    <button type="button" class="btn btn-sm btn-primary" onclick="runBundleProcess()">Bundle-Process</button>
                 </div>
             </form>
             <div id="alert" class="alert alert-success mt-3 d-none">
